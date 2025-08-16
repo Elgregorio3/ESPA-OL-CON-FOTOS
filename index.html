@@ -1,37 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo Exclusivo de Citas</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <meta name="description" content="Explora nuestro catálogo exclusivo de citas, disponible en toda la ciudad. Entra ahora y encuentra lo que buscas.">
-  <meta property="og:title" content="Catálogo Exclusivo de Citas">
-  <meta property="og:description" content="Explora nuestro catálogo exclusivo de citas, disponible en toda la ciudad.">
-  <meta property="og:image" content="https://i.postimg.cc/rwXk6KNf/photo-5080140305176571628-x.jpg">
-
-  <link rel="shortcut icon" href="https://cdn.jmpcdn.com/assets/3420/images/2.ico" type="image/x-icon">
-
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; font-family: 'Poppins', sans-serif; color: #fff; background: linear-gradient(135deg, #1E1E2F, #3A3A6A); overflow-x: hidden; position: relative; }
-    .wrap { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; }
-    .logo img { max-width: 180px; margin-bottom: 25px; filter: drop-shadow(0 0 8px #fff); }
-    h1 { font-size: 2rem; margin-bottom: 15px; text-shadow: 1px 1px 3px #000; }
-    h2 { font-size: 1.2rem; font-weight: 400; margin-bottom: 30px; line-height: 1.4; color: #ddd; }
-    .buttons-block { display: flex; flex-direction: column; gap: 18px; width: 100%; max-width: 340px; }
-    .step-btn { padding: 16px 24px; background: linear-gradient(45deg, #FF416C, #FF4B2B); color: #fff; font-weight: 600; font-size: 1.1rem; border: none; border-radius: 14px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 6px 18px rgba(255, 65, 108, 0.5); text-decoration: none; display: flex; align-items: center; justify-content: center; }
-    .step-btn:hover { transform: scale(1.05); box-shadow: 0 8px 24px rgba(255, 65, 108, 0.7); }
-    .image-container { position: relative; width: 100%; height: 45vh; max-width: 100%; overflow: hidden; border-radius: 14px; margin-bottom: 25px; }
-    .image-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out; }
-    .image-container img.active { opacity: 1; }
-    @media (max-width: 480px) { h1 { font-size: 1.5rem; } h2 { font-size: 1rem; } .step-btn { font-size: 1rem; padding: 14px 20px; } }
-    .timer { margin-top: 20px; font-size: 1.2rem; font-weight: 600; color: #FFD700; }
-  </style>
-</head>
 <body>
   <div class="wrap">
     <div class="logo">
@@ -49,14 +15,19 @@
     <h1>Catálogo Exclusivo de Citas</h1>
     <h2>Disponible en toda la ciudad, 24/7 🚀. Explora perfiles únicos y encuentra lo que buscas hoy mismo.</h2>
 
-    <div class="buttons-block">
-      <a href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}" class="step-btn">😈 Sí, quiero ver el catálogo</a>
-      <a href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}" class="step-btn" style="background: linear-gradient(45deg, #4CAF50, #2E7D32);">😞 Quizás después</a>
-    </div>
-
     <div class="timer" id="timer">⏳ Tiempo restante: 05:00 | Registros limitados</div>
+
+    <div class="buttons-block">
+      <a href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}" class="step-btn">
+        😈 Sí, quiero ver el catálogo
+      </a>
+      <a href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}" class="step-btn" style="background: linear-gradient(45deg, #4CAF50, #2E7D32);">
+        😞 Quizás después
+      </a>
+    </div>
   </div>
 
+  <!-- Scripts -->
   <script>
     // Cambio de imágenes
     let currentIndex = 0;
@@ -69,8 +40,8 @@
     }
     setInterval(changeImage, 2500);
 
-    // Contador 5 minutos
-    let timeLeft = 300; // 5 minutos en segundos
+    // Contador de 5 minutos
+    let timeLeft = 300;
     const timerEl = document.getElementById('timer');
     const timerInterval = setInterval(() => {
       const minutes = Math.floor(timeLeft / 60).toString().padStart(2,'0');
@@ -80,16 +51,17 @@
       timeLeft--;
     }, 1000);
 
-    // Desactivar clic derecho y algunas teclas
-    document.addEventListener('contextmenu', e => { e.preventDefault(); alert('Acceso restringido ⚠️'); });
+    // Desactivar clic derecho y Ctrl+U
+    document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
-      if ((e.ctrlKey && e.key.toLowerCase() === 'u') || 
-          (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') || 
-          e.key === 'F12') {
-        e.preventDefault(); 
-        alert('Acceso restringido ⚠️');
-      }
+      if(e.ctrlKey && (e.key === 'u' || e.key === 'U')) e.preventDefault();
     });
   </script>
+
+  <!-- WauStats -->
+  <script id="_wau1ca">
+    var _wau = _wau || [];
+    _wau.push(["dynamic", "zeus23", "1ca", "ffffffffffff", "small"]);
+  </script>
+  <script async src="//waust.at/d.js"></script>
 </body>
-</html>
