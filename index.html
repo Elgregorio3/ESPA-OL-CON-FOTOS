@@ -83,10 +83,10 @@
       let segundos = tiempo % 60;
       minutos = minutos < 10 ? '0' + minutos : minutos;
       segundos = segundos < 10 ? '0' + segundos : segundos;
-      contadorDiv.textContent = `⏳ Tiempo restante: ${minutos}:${segundos} | Registros limitados`;
+      contadorDiv.textContent = `⏳ Tiempo restante: ${minutos}:${segundos} | Registros Gratis Hoy`;
       if (tiempo <= 0) {
         clearInterval(timer);
-        contadorDiv.textContent = "⏳ Tiempo agotado | Registros limitados";
+        contadorDiv.textContent = "⏳ Tiempo agotado | Registros Gratis Hoy";
       }
       tiempo--;
     }, 1000);
@@ -107,4 +107,5 @@
 
 </body>
 </html>
+
 
