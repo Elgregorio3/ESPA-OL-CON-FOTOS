@@ -28,12 +28,8 @@
     .image-container { position: relative; width: 100%; height: 45vh; max-width: 100%; overflow: hidden; border-radius: 14px; margin-bottom: 25px; }
     .image-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out; }
     .image-container img.active { opacity: 1; }
-    .timer { margin-top: 20px; font-size: 1.1rem; font-weight: 600; color: #ffcc00; }
-    .testimonials { margin-top: 25px; color: #ccc; font-size: 0.95rem; text-align: left; max-width: 340px; }
-    .testimonials p { margin-bottom: 10px; }
-    footer { margin-top: 40px; font-size: 0.8rem; color: #ccc; }
-    footer a { color: #ffcc00; text-decoration: none; }
     @media (max-width: 480px) { h1 { font-size: 1.5rem; } h2 { font-size: 1rem; } .step-btn { font-size: 1rem; padding: 14px 20px; } }
+    .timer { margin-top: 20px; font-size: 1.2rem; font-weight: 600; color: #FFD700; }
   </style>
 </head>
 <body>
@@ -54,62 +50,46 @@
     <h2>Disponible en toda la ciudad, 24/7 🚀. Explora perfiles únicos y encuentra lo que buscas hoy mismo.</h2>
 
     <div class="buttons-block">
-      <button class="step-btn" onclick="mostrarPaso2()">😈 Sí, quiero ver el catálogo</button>
-      <button class="step-btn" style="background: linear-gradient(45deg, #4CAF50, #2E7D32);" onclick="alert('¡Te esperamos más tarde!')">😞 Quizás después</button>
+      <a href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}" class="step-btn">😈 Sí, quiero ver el catálogo</a>
+      <a href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}" class="step-btn" style="background: linear-gradient(45deg, #4CAF50, #2E7D32);">😞 Quizás después</a>
     </div>
 
-    <div class="step-block" id="step2" style="display: none; margin-top: 25px;">
-      <h2>⚠️ Compromiso: respeta a todas las mujeres que verás en el catálogo. Si reconoces a alguien, mantén la discreción.</h2>
-      <a href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}" 
-         class="step-btn" target="_blank" rel="noopener noreferrer">
-        ✅ Acepto y quiero ver el catálogo
-      </a>
-      <div class="timer" id="timer">⏳ Registros limitados: 05:00</div>
-    </div>
-
-    <div class="testimonials">
-      <h3>Lo que dicen nuestros usuarios:</h3>
-      <p>“Excelente catálogo, encontré exactamente lo que buscaba 👌” – Usuario satisfecho</p>
-      <p>“Muy fácil de navegar y seguro 👍” – Ana, 28 años</p>
-      <p>“Recomendado, perfiles únicos y atención rápida 💬” – Carlos, 32 años</p>
-    </div>
-
-    <footer>
-      © 2025 Catálogo Exclusivo de Citas | <a href="/privacidad.html">Política de privacidad</a> | contacto@tucatalogo.com
-    </footer>
+    <div class="timer" id="timer">⏳ Tiempo restante: 05:00 | Registros limitados</div>
   </div>
 
   <script>
-    function mostrarPaso2() {
-      document.getElementById("step2").style.display = "block";
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-      iniciarTimer(300); // 5 minutos
-    }
-
+    // Cambio de imágenes
     let currentIndex = 0;
     const images = document.querySelectorAll('.image-container img');
     const totalImages = images.length;
-
     function changeImage() {
       images[currentIndex].classList.remove('active');
       currentIndex = (currentIndex + 1) % totalImages;
       images[currentIndex].classList.add('active');
     }
-
     setInterval(changeImage, 2500);
 
-    function iniciarTimer(segundos) {
-      const timerEl = document.getElementById('timer');
-      let tiempo = segundos;
+    // Contador 5 minutos
+    let timeLeft = 300; // 5 minutos en segundos
+    const timerEl = document.getElementById('timer');
+    const timerInterval = setInterval(() => {
+      const minutes = Math.floor(timeLeft / 60).toString().padStart(2,'0');
+      const seconds = (timeLeft % 60).toString().padStart(2,'0');
+      timerEl.textContent = `⏳ Tiempo restante: ${minutes}:${seconds} | Registros limitados`;
+      if(timeLeft <= 0) clearInterval(timerInterval);
+      timeLeft--;
+    }, 1000);
 
-      const interval = setInterval(() => {
-        const min = String(Math.floor(tiempo / 60)).padStart(2, '0');
-        const sec = String(tiempo % 60).padStart(2, '0');
-        timerEl.textContent = `⏳ Registros limitados: ${min}:${sec}`;
-        tiempo--;
-        if (tiempo < 0) clearInterval(interval);
-      }, 1000);
-    }
+    // Desactivar clic derecho y algunas teclas
+    document.addEventListener('contextmenu', e => { e.preventDefault(); alert('Acceso restringido ⚠️'); });
+    document.addEventListener('keydown', e => {
+      if ((e.ctrlKey && e.key.toLowerCase() === 'u') || 
+          (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') || 
+          e.key === 'F12') {
+        e.preventDefault(); 
+        alert('Acceso restringido ⚠️');
+      }
+    });
   </script>
 </body>
 </html>
