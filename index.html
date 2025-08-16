@@ -1,31 +1,18 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Catalogo de citas</title>
-
-  <script>
-    const isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    if (!isMobile) {
-      window.location.href = "https://www.google.com";
-    }
-  </script>
-
-  <script>
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key)) || (e.ctrlKey && e.key === 'U')) {
-        e.preventDefault();
-      }
-    });
-    document.addEventListener('contextmenu', e => e.preventDefault());
-  </script>
+  <title>Catálogo Exclusivo de Citas</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
+  <meta name="description" content="Explora nuestro catálogo exclusivo de citas, disponible en toda la ciudad. Entra ahora y encuentra lo que buscas.">
+  <meta property="og:title" content="Catálogo Exclusivo de Citas">
+  <meta property="og:description" content="Explora nuestro catálogo exclusivo de citas, disponible en toda la ciudad.">
   <meta property="og:image" content="https://i.postimg.cc/rwXk6KNf/photo-5080140305176571628-x.jpg">
+
   <link rel="shortcut icon" href="https://cdn.jmpcdn.com/assets/3420/images/2.ico" type="image/x-icon">
 
   <style>
@@ -39,14 +26,13 @@
       height: 100%;
       font-family: 'Poppins', sans-serif;
       color: #fff;
-      background-color: #000;
+      background: linear-gradient(135deg, #1E1E2F, #3A3A6A);
       overflow-x: hidden;
       position: relative;
     }
 
     .wrap {
       position: relative;
-      z-index: 1;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -56,69 +42,64 @@
       text-align: center;
     }
 
-    .logo {
-      position: absolute;
-      top: 15%;
-      z-index: 2;
-    }
-
     .logo img {
-      max-width: 250px;
-      margin-bottom: 35px;
-      filter: drop-shadow(0 0 10px #fff);
+      max-width: 180px;
+      margin-bottom: 25px;
+      filter: drop-shadow(0 0 8px #fff);
     }
 
-    .question-title {
-      font-size: 1.8rem;
-      margin: 30px 0;
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
       text-shadow: 1px 1px 3px #000;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 30px;
+      line-height: 1.4;
+      color: #ddd;
     }
 
     .buttons-block {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 18px;
       width: 100%;
-      max-width: 380px;
-      z-index: 2;
+      max-width: 340px;
     }
 
     .step-btn {
-      padding: 20px 28px;
-      background: linear-gradient(45deg, #1E90FF, #4682B4);
+      padding: 16px 24px;
+      background: linear-gradient(45deg, #FF416C, #FF4B2B);
       color: #fff;
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       border: none;
       border-radius: 14px;
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 6px 18px rgba(30, 144, 255, 0.5);
+      box-shadow: 0 6px 18px rgba(255, 65, 108, 0.5);
+      text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .step-btn:hover {
-      transform: scale(1.07);
-      box-shadow: 0 8px 24px rgba(30, 144, 255, 0.7);
-    }
-
-    .step-btn span {
-      margin-left: 10px;
-    }
-
-    a.step-btn {
-      text-decoration: none;
-      display: block;
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(255, 65, 108, 0.7);
     }
 
     .image-container {
       position: relative;
       width: 100%;
-      height: 50vh;
+      height: 45vh;
       max-width: 100%;
       overflow: hidden;
+      border-radius: 14px;
+      margin-bottom: 25px;
     }
 
     .image-container img {
@@ -137,25 +118,16 @@
     }
 
     @media (max-width: 480px) {
-      .question-title {
-        font-size: 1.4rem;
-      }
-
-      .step-btn {
-        font-size: 1.05rem;
-        padding: 18px 24px;
-      }
-
-      .buttons-block {
-        max-width: 100%;
-      }
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1rem; }
+      .step-btn { font-size: 1rem; padding: 14px 20px; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="logo">
-      <img src="https://i.imgur.com/sZdtUEq.png" alt="Logo strony">
+      <img src="https://i.imgur.com/sZdtUEq.png" alt="Logo Catálogo">
     </div>
 
     <div class="image-container">
@@ -166,34 +138,26 @@
       <img src="https://i.postimg.cc/zGm0xxYb/12712514-007-f1d4.jpg">
     </div>
 
-    <div class="step-block">
-      <div class="step-item" id="step1">
-        <div class="question-title">
-          Przyjeżdżamy do Ciebie w nocy, usługa dostępna w całym mieście. Chcesz zobaczyć mój katalog?
-        </div>
-        <div class="buttons-block">
-          <button class="step-btn" onclick="afficherEtape2()">😈 Tak, chcę zobaczyć</button>
-          <button class="step-btn" onclick="alert('Może innym razem!')">😞 Nie teraz</button>
-        </div>
-      </div>
+    <h1>Catálogo Exclusivo de Citas</h1>
+    <h2>Disponible en toda la ciudad, 24/7 🚀. Explora perfiles únicos y encuentra lo que buscas hoy mismo.</h2>
 
-      <div class="step-item" id="step2" style="display: none;">
-        <div class="question-title">
-          UWAGA! Czy zgadzasz się szanować kobiety, które zobaczysz? Jeśli rozpoznasz którąkolwiek, nie mów nikomu i nie rozpowszechniaj plotek.
-        </div>
-        <div class="buttons-block">
-          <a href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}" class="step-btn">
-            ZGADZAM SIĘ I CHCĘ ZOBACZYĆ KATALOG
-          </a>
-        </div>
-      </div>
+    <div class="buttons-block">
+      <button class="step-btn" onclick="mostrarPaso2()">😈 Sí, quiero ver el catálogo</button>
+      <button class="step-btn" style="background: linear-gradient(45deg, #4CAF50, #2E7D32);" onclick="alert('¡Te esperamos más tarde!')">😞 Quizás después</button>
+    </div>
+
+    <div class="step-block" id="step2" style="display: none; margin-top: 25px;">
+      <h2>⚠️ Compromiso: respeta a todas las mujeres que verás en el catálogo. Si reconoces a alguien, mantén la discreción.</h2>
+      <a href="https://searchfordating.com/tds/ae?tdsId=s2190pos_r&tds_campaign=s2190pos&s1=ps&utm_source=int&utm_sub=opnfnl&affid=1b48fff7&subid={Zeus}&subid2={subid2}&clickid={clickid}" class="step-btn">
+        ✅ Acepto y quiero ver el catálogo
+      </a>
     </div>
   </div>
 
   <script>
-    function afficherEtape2() {
-      document.getElementById("step1").style.display = "none";
+    function mostrarPaso2() {
       document.getElementById("step2").style.display = "block";
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
 
     let currentIndex = 0;
@@ -206,13 +170,7 @@
       images[currentIndex].classList.add('active');
     }
 
-    setInterval(changeImage, 2000);
+    setInterval(changeImage, 2500);
   </script>
-
-  <script id="_wau1ca">
-    var _wau = _wau || [];
-    _wau.push(["dynamic", "zeus23", "1ca", "ffffffffffff", "small"]);
-  </script>
-  <script async src="//waust.at/d.js"></script>
 </body>
 </html>
